@@ -1,0 +1,93 @@
+/* Contenedor principal */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    font-family: "Orelega One", serif;
+    color: black;
+}
+
+/* Contenedor superior */
+.superior {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    height: 50vh;
+    position: relative;
+}
+
+.momento-dia {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 55px;
+    font-weight: 400;
+    text-align: center;
+    flex-grow: 1;
+}
+
+.hora {
+    font-size: 30px;
+    font-weight: 300;
+    margin-top: 10px;
+    /* Espacio entre el momento del día y la hora */
+}
+
+.fecha {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 18px;
+}
+
+/* Contenedor inferior */
+.inferior {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 50%;
+    padding: 20px;
+    background-color: #fcf6f4;
+}
+
+.titulo {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 2.5rem;
+}
+
+/* Contenedor para la información del clima */
+.datos {
+    margin: 10%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50%;
+    background-color: #fcf6f4;
+    border-radius: 20px;
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+}
+
+.dato {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.dato h2 {
+    margin: 5px 0;
+    font-size: 1.8rem;
+}
+
+.dato p {
+    margin: 5px 0;
+    font-size: 1.5rem;
+}
