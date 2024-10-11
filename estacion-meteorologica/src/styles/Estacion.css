@@ -1,95 +1,78 @@
-/* Contenedor principal */
+/* Estacion.css */
 .container-estacion {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 100vh;
-    width: 100%;
-    font-family: "Orelega One", serif;
-    color: black;
+    align-items: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    font-family: 'Arial', sans-serif;
 }
 
-/* Contenedor superior */
 .superior {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding: 20px;
-    height: 50vh;
-    position: relative;
+    width: 100%;
+    color: #fff;
 }
 
 .momento-dia {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    font-size: 55px;
-    font-weight: 400;
-    text-align: center;
+    text-align: left;
 }
 
-.hora {
-    font-size: 30px;
-    font-weight: 300;
-    margin-top: 10px;
+.hora-del-dia {
+    font-size: 1.5em;
+    font-weight: bold;
 }
 
-.fecha {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 18px;
+.fecha h2 {
+    font-size: 1.2em;
 }
 
-/* Contenedor inferior */
 .inferior {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    height: 50%;
+    background-color: #fff;
+    border-radius: 10px;
     padding: 20px;
-    background-color: #fcf6f4;
+    width: 100%;
 }
 
-/* Título */
 .titulo {
     text-align: center;
-    margin: 20px 0;
-    font-size: 2.5rem;
+    color: #333;
 }
 
-/* Contenedor para la información del clima */
 .datos {
-    margin: 5%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 200px;
-    background-color: #fcf6f4;
-    border-radius: 20px;
-    border: 2px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(10px);
-    padding: 20px;
 }
 
 .dato {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 10px;
+    width: 80%;
+    background-color: #f9f9f9;
+    transition: transform 0.2s;
+}
+
+.dato:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .dato h2 {
-    margin: 5px 0;
-    font-size: 1.5rem;
+    margin: 0;
+    color: #333;
 }
 
 .dato p {
-    margin: 5px 0;
-    font-size: 1.2rem;
+    margin: 5px 0 0;
+    font-size: 1.2em;
 }

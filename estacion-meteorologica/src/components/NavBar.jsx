@@ -4,9 +4,9 @@ import '../styles/NavBar.css';
 
 const NavBar = () => {
     const listaRutas = [
-        { path: '/home', pathName: 'Home' },
-        { path: '/datos', pathName: 'Datos' },
-        { path: '/estadisticas', pathName: 'Estadisticas' },
+        { path: '/home', pathName: 'Mapa' },
+        { path: '/datos', pathName: 'Datos Meteorologicos' },
+        { path: '/estadisticas', pathName: 'Estadisticas' }
     ];
 
     return (
@@ -25,7 +25,9 @@ const NavBar = () => {
                     ))}
                 </ul>
                 <div className="navbar-logout">
-                    <button >Cerrar Sesión</button>
+                    <Link to="/">
+                        <button>Cerrar Sesión</button>
+                    </Link>
                 </div>
             </nav>
         </div>

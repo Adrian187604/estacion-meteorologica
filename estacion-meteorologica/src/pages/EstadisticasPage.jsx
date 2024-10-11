@@ -16,18 +16,20 @@ const EstadisticasPage = () => {
         const socket = new WebSocket('ws://localhost:8080');
 
         socket.onmessage = (event) => {
-            const datos = event.data.split(',');
-            const nuevaTemperatura = parseFloat(datos[0].split(':')[1]);
-            const nuevaPresion = parseFloat(datos[1].split(':')[1]);
-            const nuevaAltitud = parseFloat(datos[2].split(':')[1]);
-            const nuevaVelocidadViento = parseFloat(datos[3].split(':')[1]);
+            try{
+                const sensorData = JSON.parse(event.data)
+                const {temperatura,presion, altitud, velocidadViento} = sensorData
 
-            setLabels((prevLabels) => [...prevLabels, new Date().toLocaleTimeString()]);
-            setTemperaturas((prevTemps) => [...prevTemps, nuevaTemperatura]);
-            setPresiones((prevPresiones) => [...prevPresiones, nuevaPresion]);
-            setAltitudes((prevAltitudes) => [...prevAltitudes, nuevaAltitud]);
-            setVelocidadesViento((prevViento) => [...prevViento, nuevaVelocidadViento]);
-        };
+                setLabels((prevLabels) => [...prevLabels, new Date().toLocaleTimeString()]);
+                setTemperaturas((prevTemps) => [...prevTemps, temperatura]);
+                setPresiones((prevPresiones) => [...prevPresiones, presion]);
+                setAltitudes((prevAltitudes) => [...prevAltitudes, altitud]);
+                setVelocidadesViento((prevViento) => [...prevViento, velocidadViento]);
+      
+            } catch (error) {
+                console.log('Error datos', error)
+            }
+      };
 
         return () => {
             socket.close();

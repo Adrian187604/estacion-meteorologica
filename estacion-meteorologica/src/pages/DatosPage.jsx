@@ -2,22 +2,27 @@ import React, { useEffect, useState } from "react";
 import '../styles/Estacion.css';
 
 const Estacion = () => {
-    const [data, setData] = useState({});
+    const [data, setData] = useState({ 
+        temperatura: '', 
+        presion: '', 
+        altitud: '', 
+        velocidadViento: '' 
+    });
     const [horaDelDia, setHoraDelDia] = useState('');
 
     useEffect(() => {
-        const socket = new WebSocket('ws://localhost:8080')
+        const socket = new WebSocket('ws://localhost:8080');
 
         setHoraDelDia(obtenerHoraDelDia());
 
         socket.onmessage = (event) => {
-            const datos = event.data.split(' ');
-            const temperatura = datos[1];
-            const presion = datos[4];
-            const altitud = datos[7];
-            const velocidadViento = datos[12];
-            setData({ temperatura, presion, altitud, velocidadViento });
-            console.log('Datos enviados!');
+            try {
+                const sensorData = JSON.parse(event.data);
+                const { temperatura, presion, altitud, velocidadViento } = sensorData;
+                setData({ temperatura, presion, altitud, velocidadViento });
+            } catch (error) {
+                console.error('Error al recibir los datos:', error);
+            }
         };
 
         return () => {
