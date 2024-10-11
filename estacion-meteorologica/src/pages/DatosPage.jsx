@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import '../styles/estacion.css';
+import '../styles/Estacion.css';
 
 const Estacion = () => {
-    const [data, setData] = useState('');
+    const [data, setData] = useState({});
     const [horaDelDia, setHoraDelDia] = useState('');
 
     useEffect(() => {
@@ -14,7 +14,9 @@ const Estacion = () => {
             const datos = event.data.split(' ');
             const temperatura = datos[1];
             const presion = datos[4];
-            setData({ temperatura, presion });
+            const altitud = datos[7];
+            const velocidadViento = datos[12];
+            setData({ temperatura, presion, altitud, velocidadViento });
             console.log('Datos enviados!');
         };
 
@@ -33,8 +35,6 @@ const Estacion = () => {
         return 'Noche';
     };
 
-
-
     const ColorFondo = () => {
         switch (horaDelDia) {
             case 'Amanecer': return '#FFDAB9';
@@ -48,7 +48,7 @@ const Estacion = () => {
     };
 
     return (
-        <div className="container">
+        <div className="container-estacion">
             {/* Contenedor superior */}
             <div className="superior" style={{ backgroundColor: ColorFondo() }}>
                 <div className="momento-dia">
@@ -71,6 +71,14 @@ const Estacion = () => {
                     <div className="dato">
                         <h2>Presión Atmosférica:</h2>
                         <p>{data.presion} Pa</p>
+                    </div>
+                    <div className="dato">
+                        <h2>Altitud:</h2>
+                        <p>{data.altitud} m</p>
+                    </div>
+                    <div className="dato">
+                        <h2>Velocidad del viento:</h2>
+                        <p>{data.velocidadViento} m/s</p>
                     </div>
                 </div>
             </div>
